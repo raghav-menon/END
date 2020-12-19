@@ -219,7 +219,7 @@ def insertionSort(arr):
        else:
            print(num)
  
-# write a python proram to check whether the number is prime
+# write a python program to check whether the number is prime
 
 num = 407
 if num > 1:
@@ -411,7 +411,6 @@ def isLucky(n):
 # write a python function to find the nth catalan number
 
 def catalan(n): 
-    # Base Case 
     if n <= 1: 
         return 1
     res = 0
@@ -576,4 +575,224 @@ def catalan(n):
         else:
             print(Y, "-03-", days)
             return
-     
+
+ #write a python function to print the pascal's triangle
+ 
+ def printPascal(n):  
+  
+    for line in range(1, n + 1):  
+        C = 1; 
+        for i in range(1, line + 1):   
+            print(C, end = " ");  
+            C = int(C * (line - i) / i);  
+        print("");
+
+ #write a python function to print Hosoya's triangle of height 'n'
+
+ def printHosoya(n): 
+    dp = [[0 for i in range(n)]  
+             for i in range(n)] 
+               
+    dp[0][0] = dp[1][0] = dp[1][1] = 1
+    for i in range(2, n): 
+        for j in range(n):  
+            if (i > j): 
+                dp[i][j] = (dp[i - 1][j] + 
+                            dp[i - 2][j]) 
+            else: 
+                dp[i][j] = (dp[i - 1][j - 1] +
+                            dp[i - 2][j - 2]) 
+    for i in range(n): 
+        for j in range(i + 1): 
+            print(dp[i][j], end = ' ') 
+        print() 
+  
+  #write a python function to print Floyd's triangle
+  
+  def loydTriangle(n):   
+    val = 1
+    for i in range(1, n + 1): 
+  
+        for j in range(1, i + 1): 
+            print(val, end = " ") 
+            val += 1       
+        print("") 
+        
+ #write a python function to print reverese Floyd's triangle
+ 
+ def printReverseFloyd(n): 
+  
+    curr_val = int(n*(n + 1)/2) 
+    for i in range(n + 1, 1, -1): 
+        for j in range(i, 1, -1): 
+            print(curr_val, end ="  ") 
+            curr_val -= 1       
+        print("") 
+        
+ # write a python function to print fibonacci series in the reverse order
+  
+ def reverseFibonacci(n): 
+   
+    a = [0] * n  
+    a[0] = 0 
+    a[1] = 1   
+    for i in range(2, n):   
+        a[i] = a[i - 2] + a[i - 1]  
+    for i in range(n - 1, -1 , -1):    
+        print(a[i],end=" ")  
+        
+ # write a python function to print Leibniz Harmonic triangle
+ 
+def LeibnizHarmonicTriangle(n): 
+    C = [[0 for x in range(n + 1)]  
+            for y in range(n + 1)]; 
+    for i in range(0, n + 1): 
+        for j in range(0, min(i, n) + 1): 
+            if (j == 0 or j == i): 
+                C[i][j] = 1;  
+            else: 
+                C[i][j] = (C[i - 1][j - 1] + 
+                           C[i - 1][j]);  
+    for i in range(1, n + 1): 
+        for j in range(1, i + 1): 
+            print("1/", end = ""); 
+            print(i * C[i - 1][j - 1],  
+                           end = " "); 
+        print(); 
+
+ # write a python function to check whether the given series is in Arithematic progression
+ 
+ def checkIsAP(arr, n): 
+    if (n == 1): return True
+    arr.sort() 
+    d = arr[1] - arr[0] 
+    for i in range(2, n): 
+        if (arr[i] - arr[i-1] != d): 
+            return False
+  
+    return True
+ 
+  # write a python function to check whether the given series is in harmonic progression
+  
+def is_geometric(li): 
+    if len(li) <= 1: 
+        return True
+    ratio = li[1]/float(li[0]) 
+    for i in range(1, len(li)): 
+        if li[i]/float(li[i-1]) != ratio:  
+            return False
+    return True
+
+  # write a python function to find the area of a circumscribed circle of an equilateral triangle
+  
+   def area_cicumscribed(a): 
+    return (a * a * (3.14159265 / 3)) 
+    
+  # write a python function to find the side of a octogon inscribed in a square
+  
+  def octaside(a): 
+    if a < 0: 
+        return -1
+    s = a / (1.414 + 1) 
+    return s 
+  
+ # write a python program to find the area of enneagon
+  
+  length = 6
+  Nonagon_area = 6.1818 * (length ** 2)  
+  print("Area of regular Nonagon is = ", Nonagon_area) 
+  
+ # write a python function to find the day of the week given the date
+ 
+ def dayofweek(d, m, y): 
+    t = [ 0, 3, 2, 5, 0, 3, 
+          5, 1, 4, 6, 2, 4 ] 
+    y -= m < 3
+    return (( y + int(y / 4) - int(y / 100) 
+             + int(y / 400) + t[m - 1] + d) % 7) 
+  
+  # write a python function to calculate the MDAS factorial of a number
+  
+ def MDAS_Factorial( N ):   
+    if N <= 2: 
+        return N 
+    if N <= 4: 
+        return N + 3      
+    if (N - 4) % 4 == 0: 
+        return N + 1
+    elif (N - 4) % 4 <= 2: 
+         return N + 2
+    else: 
+         return N - 1
+         
+ # write a python function to find the nth pronic number
+ 
+ def findRectNum(n): 
+    return n*(n + 1) 
+ 
+ #write a python function to find the sum of N pronic numbers
+
+ def calculateSum(N): 
+  
+    return (N * (N - 1) // 2 + 
+            N * (N - 1) * (2 * 
+                 N - 1) // 6); 
+  
+  #write a python function to find the sum of first N even numbers
+  
+  def evensum(n): 
+    curr = 2
+    sum = 0
+    i = 1 
+    while i <= n: 
+        sum += curr  
+        curr += 2
+        i = i + 1
+    return sum
+    
+ # write a python function to check whether a number can be written as a sum of 3 primes (Goldbach Weak Coonjecture)
+ 
+ def check(n): 
+  if n % 2 == 1 and n > 5: 
+    print('YES') 
+  else: 
+    print('NO') 
+
+ # write a python function to find the nth perrin number
+ 
+ def per(n): 
+  
+    if (n == 0): 
+        return 3; 
+    if (n == 1): 
+        return 0; 
+    if (n == 2): 
+        return 2; 
+    return per(n - 2) + per(n - 3); 
+    
+ # write a python function to find the betrothed numbers smaller than n  80
+  
+def BetrothedNumbers(n) : 
+      
+    for num1 in range (1,n) :  
+        sum1 = 1    
+        i = 2
+        while i * i <= num1 : 
+            if (num1 % i == 0) : 
+                sum1 = sum1 + i 
+                if (i * i != num1) : 
+                    sum1 += num1 / i 
+            i =i + 1
+        if (sum1 > num1) : 
+              
+            num2 = sum1 - 1
+            sum2 = 1
+            j = 2
+            while j * j <= num2 : 
+                if (num2 % j == 0) : 
+                    sum2 += j 
+                    if (j * j != num2) : 
+                        sum2 += num2 / j 
+                j = j + 1
+            if (sum2 == num1+1) : 
+                print ('('+str(num1)+', '+str(num2)+')') 
