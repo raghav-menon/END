@@ -770,7 +770,7 @@ def is_geometric(li):
         return 2; 
     return per(n - 2) + per(n - 3); 
     
- # write a python function to find the betrothed numbers smaller than n  80
+ # write a python function to find the betrothed numbers smaller than n
   
 def BetrothedNumbers(n) : 
       
@@ -796,3 +796,255 @@ def BetrothedNumbers(n) :
                 j = j + 1
             if (sum2 == num1+1) : 
                 print ('('+str(num1)+', '+str(num2)+')') 
+                
+ # write a python function to implement linear extrapolation
+ 
+ def extrapolate(d, x): 
+    y = (d[0][1] + (x - d[0][0]) / 
+        (d[1][0] - d[0][0]) * 
+        (d[1][1] - d[0][1]));    
+    return y;  
+
+ # write a python function to print the collatz sequence
+ 
+ def printCollatz(n): 
+    while n != 1: 
+        print(n, end = ' ') 
+        if n & 1: 
+            n = 3 * n + 1
+        else: 
+            n = n // 2  
+    print(n) 
+    
+ # write a python function to print the newman-conway sequence
+ 
+ def sequence(n): 
+    f = [0, 1, 1] 
+    print(f[1], end=" "), 
+    print(f[2], end=" "), 
+    for i in range(3,n+1): 
+        f.append( f[f[i - 1]] + f[i - f[i - 1]]) 
+        print(f[i], end=" "), 
+     
+ #write a python function to find the nth term in a padovan's sequence
+
+# Function to calculate padovan number P(n) 
+ def padovan(n): 
+    pPrevPrev, pPrev, pCurr, pNext = 1, 1, 1, 1 
+    for i in range(3, n+1): 
+        pNext = pPrevPrev + pPrev 
+        pPrevPrev = pPrev 
+        pPrev = pCurr 
+        pCurr = pNext 
+  
+    return pNext; 
+    
+ # write a python function to print the raceman sequence
+ 
+ def recaman(n): 
+    arr = [0] * n  
+    arr[0] = 0
+    print(arr[0], end=", ") 
+    for i in range(1, n):     
+        curr = arr[i-1] - i 
+        for j in range(0, i):  
+            if ((arr[j] == curr) or curr < 0): 
+                curr = arr[i-1] + i 
+                break              
+        arr[i] = curr 
+        print(arr[i], end=", ") 
+
+ # write a python function to print the sylvester's sequence
+ 
+ def printSequence(n) : 
+    a = 1
+    ans = 2 
+    N = 1000000007
+    i = 1
+    while i <= n : 
+        print ans, 
+        ans = ((a % N) * (ans % N)) % N 
+        a = ans 
+        ans = (ans + 1) % N 
+        i = i + 1
+          
+ # write a python function to find the sum of two numbers without using arithematic operators
+ 
+ def Add(x, y): 
+    while (y != 0): 
+        carry = x & y 
+        x = x ^ y 
+        y = carry << 1     
+    return x 
+ 
+  # write a python function to subtract two numbers without using arithemmatic operators
+  
+  def subtract(x, y):  
+    while (y != 0): 
+        borrow = (~x) & y 
+        x = x ^ y 
+        y = borrow << 1
+      
+    return x 
+
+ # write a python function to find the smallest number to be subtracted from a given number to make the given number palindrome
+ 
+def minSub(N):
+    count = 0
+    while (N >= 0):
+        num = N
+        rev = 0
+        while (num != 0):
+            digit = num % 10
+            rev = (rev * 10) + digit
+            num = num // 10
+        if (N == rev):
+            break
+        count += 1
+        N -= 1
+    print(count)
+    
+ # write a python function to check whether the number is a perfect square without finding square root
+ 
+ def isPerfectSquare(n) :
+    i = 1
+    while(i * i<= n):
+        if ((n % i == 0) and (n / i == i)):
+            return True          
+        i = i + 1
+    return False
+    
+ # write a python function to find the square root of a number using babylonian method
+ 
+ def squareRoot(n): 
+        x = n 
+        y = 1
+        e = 0.000001
+        while(x - y > e): 
+      
+            x = (x + y)/2
+            y = n / x 
+      
+        return x 
+        
+# write a python function to convert bcd to decimal
+ 
+ def bcdToDecimal(s):  
+    length = len(s); 
+    check = 0; 
+    check0 = 0; 
+    num = 0; 
+    sum = 0; 
+    mul = 1; 
+    rev = 0; 
+    for i in range(length - 1, -1, -1): 
+        sum += (ord(s[i]) - ord('0')) * mul; 
+        mul *= 2; 
+        check += 1; 
+        if (check == 4 or i == 0): 
+            if (sum == 0 and check0 == 0): 
+                num = 1; 
+                check0 = 1; 
+            else: 
+                num = num * 10 + sum;          
+            check = 0; 
+            sum = 0; 
+            mul = 1; 
+    while (num > 0): 
+        rev = rev * 10 + (num % 10); 
+        num //= 10;        
+    if (check0 == 1): 
+        return rev - 1;           
+    return rev;  
+
+ # write a python function to find all the sexy primes in a given range
+
+def sexyprime(l, r) : 
+    prime=[True] * (r + 1) 
+    p = 2
+    while(p * p <= r) : 
+        if (prime[p] == True) :  
+            for i in range( p * 2, r+1 ,p) : 
+                   prime[i] = False
+        p = p + 1
+    for i in range( l,r - 6 + 1) : 
+        if (prime[i] and prime[i + 6]) : 
+            print("(", i , ",", i + 6,")", end="") 
+            
+ # write a python function to check whether the number is a duck number or not
+ 
+def check_duck(num) : 
+    n = len(num)   
+    i = 0
+    while (i < n and num[i] == '0') : 
+        i = i + 1
+    while (i < n) :  
+        if (num[i] == "0") : 
+            return True 
+        i = i + 1
+    return False
+    
+ # write a python function to check whether the given number is a Buzz number or not
+ 
+ def isBuzz(num) : 
+  
+    return (num % 10 == 7 or num % 7 == 0)  
+  
+ # write a python function to check whether the number is a nude number or not
+  
+  def checkDivisbility(num): 
+    digit = 0
+    N = num 
+    while (num != 0): 
+        digit = num % 10
+        num = num // 10
+        if (digit == 0 or N % digit != 0): 
+            return False
+    return True
+    
+ # write a python function to check whether the number is a ugly number or not
+ 
+ def isUgly(n): 
+    if (n == 1): 
+        return 1
+    if (n <= 0): 
+        return 0 
+    if (n % 2 == 0): 
+        return (isUgly(n // 2))       
+    if (n % 3 == 0): 
+        return (isUgly(n // 3))   
+    if (n % 5 == 0): 
+        return (isUgly(n // 5)) 
+    return 0
+    
+ # write a python function to write a prime number as the sum of two composite numbers
+ 
+ def findNums(n): 
+    if (n <= 11): 
+        if (n == 8): 
+            print("4 4", end = " ") 
+        if (n == 10): 
+            print("4 6", end = " ") 
+        else: 
+            print("-1", end = " ") 
+    if (n % 2 == 0): 
+        print("4 ", (n - 4), end = " ") 
+    else: 
+        print("9 ", n - 9, end = " ") 
+        
+ # write a python function to print two composite numbers whose difference is N
+ 
+ def find_composite_nos(n) :  
+    print(9 * n, 8 * n);  
+    
+ # write a python function to print N-bonacci series
+ 
+ def bonacciseries(n, m) :  
+    a = [0] * m 
+    a[n - 1] = 1 
+    for i in range(n, m) : 
+        for j in range(i - n, i) : 
+            a[i] = a[i] + a[j]  
+    for i in range(0, m) : 
+        print (a[i], end = " ") 
+     
