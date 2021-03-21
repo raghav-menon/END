@@ -28,3 +28,6 @@ The transformer model is the same as the one in  'Attention is all we need'. The
 Loss Function
 -------------
 Here we have used the cross-entropy loss function. We have not tried any other loss function. The goodness of the result (i.e. python code prediction from the transformer) is given using the perplexity. Though there are other measures like BLEU score, ROUGE etc which can probably provide a better insight on the prediction.
+
+Some of the example outputs are given in the file at this link https://github.com/raghav-menon/END/blob/main/Session14/ExecutionExample.txt
+
