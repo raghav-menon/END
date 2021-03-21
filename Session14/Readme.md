@@ -1,10 +1,10 @@
 This folder contains the program to train a transformer to write simple python codes when the question is given. The data used o train the transformer is also attached.
 
-Data Cleaning:
+Data Cleaning
 --------------
 Most of the data was cleaned using hand. The data file attached is the cleaned file which are corrected for correct tabs. The data provided contained 4324 samples totally.
 
-Data Augmentation:
+Data Augmentation
 -----------------
 Data Augmentation was done. We used the CoNaLa dataset which contains snippets of python code. The CoNaLa dataset had train and test files with 'intents' and 'rewritten-intents' which acted as questions for the code snippets 'snippets'. Thus we could get two question for the same snippet. The CoNaLa dataset added 5656 samples and thus increased the total number of samples to train the transformers to 9980.
 
